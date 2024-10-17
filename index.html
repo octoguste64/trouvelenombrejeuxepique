@@ -6,18 +6,49 @@
 </head>
 <script>
     function initialize(min, max) {
-        return random.randint
+        ANSWER = Math.floor(Math.random() * (max - min) + min);
     }
-    function playRound() {
 
+    function playRound() {
+        indice = document.getElementById("indice");
+        guess = parseInt(document.getElementById("guess").value);
+        easteregg = document.getElementById("easteregg");
+
+        indice.innerHTML = guess;
+        if (guess == 64) {
+            easteregg.innerHTML = "Super Mario 64 ! ! ! 0_0";
+        }
+        if (guess == 69) {
+            easteregg.innerHTML = "0_0  o:  T_T  Esprit mal place";
+        }
+        if (guess == ANSWER) {
+            indice.innerHTML = "B R A V O ! ! !"
+            return;
+        } else {
+            if (guess > ANSWER) {
+                indice.innerHTML = "Plus bas";
+                return;
+            }
+            else {
+                indice.innerHTML = "Plus haut";
+                return;
+            }
+        }
     }
+    ANSWER = 0;
+    
 </script>
 
-<body>
+<body onload="initialize(0,100)">
     <h1>Trouve le nombre</h1>
-    <p id="instruction"></p>
+    <p id="instruction">Choisi un nombre et devine le nombre choisi par l'ordinateur !</p>
     <p id="indice"></p>
-    <label for="guess">Ton essai</label><input type="number" id="guess">
+
+    <label for="guess">Ton essai: </label><input type="number" id="guess">
+    <button onclick="playRound()">Deviner</button>
+
+    <p id="easteregg"></p>
+
 </body>
 
 </html>
