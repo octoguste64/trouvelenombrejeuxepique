@@ -34,6 +34,7 @@
         indice.innerHTML = guess;
         if (guess == 64) {
             easteregg.innerHTML = "Super Mario 64 ! ! ! 0_0";
+            Mario_64.play();
         }
         if (guess == 69) {
             easteregg.innerHTML = "0_0  o:  T_T  Esprit mal place";
@@ -50,7 +51,7 @@
             }
             else {
                 indice.innerHTML = "Plus haut";
-                bad_guess.play();
+                Wrong_answer.play();
                 return;
             }
         }
@@ -59,6 +60,11 @@
     var winSound = new Audio("assets/win.mp3");
     
     var bad_guess = new Audio("assets/bad_guess.mp3");
+
+    var Wrong_answer = new Audio("assets/Wrong_answer.mp3");
+
+    var Mario_64 = new Audio("assets/Mario_64.mp3");
+    
 </script>
 
 <body onload="initialize(0,100)">
