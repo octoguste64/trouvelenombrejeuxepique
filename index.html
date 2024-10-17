@@ -39,23 +39,26 @@
             easteregg.innerHTML = "0_0  o:  T_T  Esprit mal place";
         }
         if (guess == ANSWER) {
-            indice.innerHTML = "<h1>B R A V O ! ! !</h1>";
-            var audio = new Audio("assets/win.mp3");
-            audio.play();
+            indice.innerHTML = "<h1>B R A V O ! ! !</h1>"; 
+            winSound.play();
             return;
         } else {
             if (guess > ANSWER) {
                 indice.innerHTML = "Plus bas";
+                bad_guess.play();
                 return;
             }
             else {
                 indice.innerHTML = "Plus haut";
+                bad_guess.play();
                 return;
             }
         }
     }
     ANSWER = 0;
+    var winSound = new Audio("assets/win.mp3");
     
+    var bad_guess = new Audio("assets/bad_guess.mp3");
 </script>
 
 <body onload="initialize(0,100)">
