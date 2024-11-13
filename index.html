@@ -39,10 +39,13 @@
         if (guess == 69) {
             easteregg.innerHTML = "0_0  o:  T_T  Esprit mal place";
             Sfx69.play();
+         if (guess == -33) {
+            easteregg.innerHTML = "Bon anniversaire (:";
+            winSound.play();   
         }
         if (guess == ANSWER) {
             indice.innerHTML = "<h1>B R A V O ! ! !</h1>"; 
-            winSound.play();
+            .play();
             return;
         } else {
             if (guess > ANSWER) {
