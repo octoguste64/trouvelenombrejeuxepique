@@ -1,4 +1,178 @@
-a remplir
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trouve le nombre Jeu Epique</title>
+</head>
+
+<style>
+    body {
+        background-image: url("assets/baldi.jpg");
+    }
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 90%;
+        font-size: xx-large;
+        /*-webkit-text-stroke: 1px #fff;*/
+        background-color: rgba(255,255,255,0.5);
+        padding: 0.5em;
+    }
+</style>
+
+<script>
+    function initialize(min, max) {
+        ANSWER = Math.floor(Math.random() * (max - min) + min);
+    }
+
+    function playRound() {
+        indice = document.getElementById("indice");
+        guess = parseInt(document.getElementById("guess").value);
+        easteregg = document.getElementById("easteregg");
+
+        indice.innerHTML = guess;
+        if (guess == 64) {
+            easteregg.innerHTML = "Super Mario 64 ! ! ! 0_0";
+            Mario_64.play();
+        }
+        if (guess == 69) {
+            easteregg.innerHTML = "0_0  o:  T_T  Esprit mal place";
+            Sfx69.play();
+        }
+         if (guess == -33) {
+            easteregg.innerHTML = "Bon anniversaire (:";
+            winSound.play();   
+        }
+        if (guess == ANSWER) {
+            indice.innerHTML = "<h1>B R A V O ! ! !</h1>"; 
+            winSound.play();
+            return;
+        } else {
+            if (guess > ANSWER) {
+                indice.innerHTML = "Plus bas";
+                bad_guess.play();
+                return;
+            }
+            else {
+                indice.innerHTML = "Plus haut";
+                Wrong_answer.play();
+                return;
+            }
+        }
+    }
+    ANSWER = 0;
+    var winSound = new Audio("assets/win.mp3");
+    
+    var bad_guess = new Audio("assets/bad_guess.mp3");
+
+    var Wrong_answer = new Audio("assets/Wrong_answer.mp3");
+
+    var Mario_64 = new Audio("assets/Mario_64.mp3");
+
+    var Sfx69 = new Audio("assets/Sfx69.mp3");
+    
+</script>
+
+<body onload="initialize(0,100)">
+    <div class="content">
+        <h1>Trouve le nombre</h1>
+        <p id="instruction">Choisi un nombre et devine le nombre choisi par l'ordinateur !</p>
+        <span id="indice"></span>
+        <br/>
+
+        <label for="guess">Ton essai: </label><input type="number" id="guess">
+        <button onclick="playRound()">Deviner</button>
+        <button onclick="initialize(0, 100)">Rejouer</button>
+
+
 
 <a href="/trouvelenombrejeuxepique/index.html">Clique ici</a>
 
