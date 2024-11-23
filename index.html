@@ -24,14 +24,20 @@
 <script>
     function initialize(min, max) {
         ANSWER = Math.floor(Math.random() * (max - min) + min);
+        round = 0;
     }
 
     function playRound() {
+        round = round + 1;
         indice = document.getElementById("indice");
         guess = parseInt(document.getElementById("guess").value);
         easteregg = document.getElementById("easteregg");
 
         indice.innerHTML = guess;
+        if (round == 10){
+            eastergg.innerHTML = "<img src="">"
+            
+        }
         if (guess == 64) {
             easteregg.innerHTML = "Super Mario 64 ! ! ! 0_0";
             Mario_64.play();
@@ -61,7 +67,8 @@
             }
         }
     }
-    ANSWER = 0;
+    ANSWER = 0; 
+    var round = 0;
     var winSound = new Audio("assets/win.mp3");
     
     var bad_guess = new Audio("assets/bad_guess.mp3");
